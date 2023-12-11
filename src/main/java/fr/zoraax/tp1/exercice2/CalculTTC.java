@@ -12,22 +12,42 @@ public class CalculTTC {
         System.out.println("Indiquez un prix HT");
         float prixHt = input.nextFloat();
 
-        try {
-            calculTTC(prixHt);
-        } catch (NegativeNumberException error) {
-            System.out.println(error.getMessage());
-        }
+        System.out.println(getPrixTTC(prixHt));
+
     }
 
-    private static void calculTTC(float prix) throws NegativeNumberException {
-        if (prix < 0) {
-            throw new NegativeNumberException("Le nombre saisi doit être supérieur à 0");
-        }
+    /**
+     * Récupère le prix TTC
+     * @param prix
+     * @return float prix * 1.20
+     * @throws NegativeNumberException
+     */
+    private static float getPrixTTC(float prix) throws NegativeNumberException {
+        verificationSiPrixEstSuperieurAZero(prix);
 
+        return calculPrixTTC(prix);
+    }
+
+    /**
+     * Calcul le prix TTC par rapport au prix HT saisi
+     * @param prix
+     * @return Le prix TTC
+     */
+    private static float calculPrixTTC(float prix) {
         final float TTC;
 
         TTC = (float) (prix * 1.2);
 
-        System.out.println("Le prix TTC du nombre saisi est : " + TTC);
+        return TTC;
+    }
+    /**
+     * Lève une Exception si le nombre est négatif
+     * @param prix
+     * @throws NegativeNumberException
+     */
+    private static void verificationSiPrixEstSuperieurAZero(float prix) throws NegativeNumberException {
+        if (prix < 0) {
+            throw new NegativeNumberException("Le nombre saisi doit être supérieur à 0");
+        }
     }
 }
