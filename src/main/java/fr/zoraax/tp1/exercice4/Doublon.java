@@ -17,10 +17,19 @@ public class Doublon {
             array[i] = input.nextInt();
         }
 
-        containsDoublonWithHashmap(array);
+        getHashmap(array);
     }
 
-    private static boolean containsDoublonWithHashmap(int[] array) {
+    private static boolean getHashmap(int[] array) {
+        return verifieSiLaHashMapContientDesDoublons(array);
+    }
+
+    /**
+     * Vérifie à travers une Hashmap si les valeurs saisies contiennent des doublons
+     * @param array
+     * @return La valeur du booléen pour définir si il y a des doublons ou non.
+     */
+    private static boolean verifieSiLaHashMapContientDesDoublons(int[] array) {
         HashMap<Integer, Integer> map = new HashMap<>();
         int index;
 
