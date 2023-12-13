@@ -1,13 +1,10 @@
 package fr.zoraax.demos.heritage;
 
 import java.time.LocalDate;
-import java.time.Period;
 
-public class Salarie extends Personne {
+public class Salarie extends Collaborateur {
     public static final int HEURES_TRAVAILLEES_MENSUEL_NORMAL = 151;
     private double tauxHoraireBrut;
-    private LocalDate debutContrat;
-    private LocalDate finContrat;
 
     public Salarie(
             String nom,
@@ -16,9 +13,8 @@ public class Salarie extends Personne {
             double tauxHoraireBrut,
             LocalDate debutContrat
     ) {
-        super(nom, prenom, dateNaissance);
+        super(nom, prenom, dateNaissance, debutContrat, null);
         this.tauxHoraireBrut = tauxHoraireBrut;
-        this.debutContrat = debutContrat;
     }
 
     public double getTauxHoraireBrut() {
@@ -31,26 +27,6 @@ public class Salarie extends Personne {
         }
 
         this.tauxHoraireBrut = tauxHoraireBrut;
-    }
-
-    public LocalDate getDebutContrat() {
-        return this.debutContrat;
-    }
-
-    public void setDebutContrat(LocalDate debutContrat) {
-        this.debutContrat = debutContrat;
-    }
-
-    public LocalDate getFinContrat() throws Exception {
-        if (finContrat == null) {
-            throw new Exception("Le salarié n'est pas (encore) licencié !");
-        }
-
-        return this.finContrat;
-    }
-
-    public void setFinContrat(LocalDate finContrat) {
-        this.finContrat = finContrat;
     }
 
     /**
@@ -93,21 +69,9 @@ public class Salarie extends Personne {
         return this.payerSalaireMensuelBrut(HEURES_TRAVAILLEES_MENSUEL_NORMAL);
     }
 
-    /**
-     * Vérifie si le salarié n'est plus présent dans les entreprises
-     * @return Vrai si le salarié n'est plus dans les effectifs
-     */
-    private boolean estTermine() {
-        return this.finContrat != null && this.finContrat.isBefore(LocalDate.now());
-    }
-
-    public void travailler(int heuresTravaillees) {
+    @Override
+    public void travailler() {
         System.out.println(this.nom + this.prenom + "Travaille dur");
-    }
-
-    public void licencier(LocalDate dateDeFin) {
-        this.finContrat = dateDeFin;
-        System.out.println(this.nom + this.prenom + "T'es viré");
     }
 
     @Override

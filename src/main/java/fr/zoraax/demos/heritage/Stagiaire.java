@@ -3,30 +3,26 @@ package fr.zoraax.demos.heritage;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class Stagiaire extends Personne {
-    private LocalDate debutStage;
-    private LocalDate finStage;
+public class Stagiaire extends Collaborateur {
 
-    public Stagiaire(String nom, String prenom, LocalDate dateNaissance, LocalDate debutStage, LocalDate finStage) {
-        super(nom, prenom, dateNaissance);
-        this.debutStage = debutStage;
-        this.finStage = finStage;
+    public Stagiaire(String nom, String prenom, LocalDate dateNaissance, LocalDate debutContrat, LocalDate finContrat) {
+        super(nom, prenom, dateNaissance, debutContrat, finContrat);
     }
 
-    public LocalDate getDebutStage() {
-        return this.debutStage;
+    public LocalDate getDebutContrat() {
+        return this.debutContrat;
     }
 
-    public void setDebutStage(LocalDate debutStage) {
-        this.debutStage = debutStage;
+    public void setDebutContrat(LocalDate debutContrat) {
+        this.debutContrat = debutContrat;
     }
 
     public LocalDate getFinStage() throws Exception {
-        if (this.finStage == null) {
+        if (this.finContrat == null) {
             throw new Exception("Le stage n'est pas encore fini michel");
         }
 
-        return this.finStage;
+        return this.finContrat;
     }
 
     public void setFinStage(LocalDate finStage) {
