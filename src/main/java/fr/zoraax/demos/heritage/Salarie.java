@@ -65,6 +65,11 @@ public class Salarie extends Collaborateur {
         return heuresTravaillees * this.tauxHoraireBrut;
     }
 
+    @Override
+    public void licencier(LocalDate dateDeFin) {
+        super.licencier(dateDeFin);
+    }
+
     public double payerSalaireMensuelBrut() {
         return this.payerSalaireMensuelBrut(HEURES_TRAVAILLEES_MENSUEL_NORMAL);
     }
