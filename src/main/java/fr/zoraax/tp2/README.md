@@ -1,7 +1,8 @@
 ## TP2 Encapsulation ##
 
-### Diagramme de fonctionnel ###
+### Diagramme fonctionnel ###
 
+```plantuml
 class Thermometre {
 __ Attribut __
 - {static} ZERO_ABSOLU_KELVIN
@@ -16,3 +17,4 @@ __ Attribut __
 + double getTemperatureFahrenheit()
 + double getTemperatureKelvin()
 }
+```

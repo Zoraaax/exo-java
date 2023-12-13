@@ -36,15 +36,15 @@ public class Thermometre {
         switch(unite) {
             case 'C':
                 this.temperatureCelsius = temperature;
-                System.out.println("La temperature en Celsius est : " + temperatureCelsius);
+                System.out.println("La temperature en Celsius est : " + getTemperatureCelsius());
                 break;
             case 'F':
                 this.temperatureFahrenheit = (temperature * 1.8) + 32;
-                System.out.println("La temperature en Fahrenheit est : " + temperatureFahrenheit);
+                System.out.println("La temperature en Fahrenheit est : " + getTemperatureFahrenheit());
                 break;
             case 'K':
                 this.temperatureKelvin = temperature + 273.15;
-                System.out.println("La temperature en Kelvin est : " + temperatureKelvin);
+                System.out.println("La temperature en Kelvin est : " + getTemperatureKelvin());
                 break;
             default:
                 throw new IllegalArgumentException("L'unité de mesure n'est pas valide");
